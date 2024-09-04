@@ -1,0 +1,29 @@
+plugins {
+    id "java"
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: "org.slf4j", name: 'slf4j-api', version: slf4j_version
+    implementation group: "net.dv8tion", name: 'JDA', version: jda_version
+    implementation group: "ch.qos.logback", name: 'logback-classic', version: logback_version
+    implementation group: "javax.annotation", name: "javax.annotation-api", version: javax_version
+    implementation group: "com.google.code.findbugs", name: "jsr305", version: jsr305_version
+    implementation group: 'com.github.mizosoft.methanol', name: 'methanol', version: methanol_version
+}
+
+compileJava.options.encoding = "UTF-8"
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+}
